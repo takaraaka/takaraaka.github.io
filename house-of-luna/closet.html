@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Closet</title>
+<link rel="stylesheet" type="text/css" href="css/closet.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){ 
+	document.getElementById("button").onclick = function() {
+		hideR();
+		console.log('a');
+		};
+		function hideR() {
+				$('#reminder').animate({'opacity' : "0", 'top' : "100vh"});
+		}
+}	
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+</head>
+<body>
+
+
+<div id="reminder">
+<p id="text">Drag and Drop the clothes to<br />dress up your doll!</p>
+<br /><br /><img id="button" src="img/tick.png" width="100">
+</div>
+
+<div id="container">
+<a href="bedroom.html" target="_self"><img src="img/backbtn2.png" id="backbtn" class="floating"></a>
+
+<div id="Doll" style="width: 250px; position: relative; float: left">
+<div id="1" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-image: url(img/dressUp/1_head.png); background-size: 250px 135px; position: relative; width: 250px; height: 135px;"></div>
+<div id="3" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-image: url(img/dressUp/3_skirt.png); background-size: 250px 188px; position: relative; width: 250px; height: 188px; top: 87px"></div>
+<div id="2" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-image: url(img/dressUp/2_top.png); background-size: 250px 104.5px; position: relative; ;width: 250px; height: 104.5px; top: -188px"></div>
+<div id="4" ondrop="drop(event)" ondragover="allowDrop(event)" style="background-image: url(img/dressUp/4_shoes.png); background-size: 250px 100px; position: relative; width: 250px; height: 100px; top: -18px"></div>
+</div>
+
+<div style="position: absolute; margin-left: 200px; width: 800px">
+<div id="clothes1" style="width: 250px; position: relative; float: left; margin-top: 11.5px;">
+<div id="A" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 135px; position: relative; background-image: url(img/dressUp/A_head.png); background-size: contain; background-repeat: no-repeat"><img id="drag1" src="img/dressUp/A_head.png"  height="135" draggable="true" ondragstart="drag(event)"></div>
+<div id="B" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 104.5px; position: relative; background-image: url(img/dressUp/B_top.png); background-size: contain; top: 10px"><img id="drag2" src="img/dressUp/B_top.png"  height="104.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="C" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 153.5px; position: relative; top: 30px; background-image: url(img/dressUp/C_skirt.png); background-size: contain; background-repeat: no-repeat"><img id="drag3" src="img/dressUp/C_skirt.png"  height="153.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="D" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 100px; position: relative; top: 10px; background-image: url(img/dressUp/D_shoes.png); background-size: contain; background-repeat: no-repeat"><img id="drag4" src="img/dressUp/D_shoes.png" height="100" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+<div id="clothes2" style="width: 250px; position: relative; float: left; left: -80px; margin-top: 11.5px;">
+<div id="E" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 135px; position: relative;; background-image: url(img/dressUp/E_head.png); background-size: auto 135px ; background-repeat: no-repeat"><img id="drag5" src="img/dressUp/E_head.png"  height="135" draggable="true" ondragstart="drag(event)"></div>
+<div id="F" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 104.5px; position: relative; background-image: url(img/dressUp/F_top.png); background-size: contain; top: 10px"><img id="drag6" src="img/dressUp/F_top.png"  height="104.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="G" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 153.5px; position: relative; top: 30px; background-image: url(img/dressUp/G_skirt.png); background-size: contain; background-repeat: no-repeat"><img id="drag7" src="img/dressUp/G_skirt.png"  height="153.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="H" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 100px; position: relative; top: 10px; background-image: url(img/dressUp/H_shoes.png); background-size: contain; background-repeat: no-repeat"><img id="drag8" src="img/dressUp/H_shoes.png" height="100" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+<div id="clothes3" style="width: 250px; position: relative; float: left; left: -160px;">
+<div id="I" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 146.5px; position: relative; background-image: url(img/dressUp/I_head.png); background-size: contain; background-repeat: no-repeat"><img id="drag9" src="img/dressUp/I_head.png"  height="146.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="J" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 104.5px; position: relative; background-image: url(img/dressUp/J_top.png); background-size: contain; top: 10px"><img id="drag10" src="img/dressUp/J_top.png"  height="104.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="K" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 153.5px; position: relative; top: 30px; background-image: url(img/dressUp/K_skirt.png); background-size: contain; background-repeat: no-repeat"><img id="drag11" src="img/dressUp/K_skirt.png"  height="153.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="L" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 100px; position: relative; top: 10px;background-image: url(img/dressUp/L_shoes.png); background-size: contain; background-repeat: no-repeat"><img id="drag12" src="img/dressUp/L_shoes.png"  height="100" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+<div id="clothes4" style="width: 250px; position: relative; float: left; left: -240px;">
+<div id="M" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 146.5px; position: relative; background-image: url(img/dressUp/M_head.png); background-size: contain; background-repeat: no-repeat"><img id="drag13" src="img/dressUp/M_head.png"  height="146.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="N" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 104.5px; position: relative; background-image: url(img/dressUp/N_top.png); background-size: contain; top: 10px"><img id="drag14" src="img/dressUp/N_top.png"  height="104.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="O" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 153.5px; position: relative; top: 30px; background-image: url(img/dressUp/O_skirt.png); background-size: contain; background-repeat: no-repeat"><img id="drag15" src="img/dressUp/O_skirt.png"  height="153.5" draggable="true" ondragstart="drag(event)"></div>
+<div id="P" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 210px; height: 100px; position: relative; top: 10px;background-image: url(img/dressUp/P_shoes.png); background-size: contain; background-repeat: no-repeat"><img id="drag16" src="img/dressUp/P_shoes.png"  height="100" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+
+</div>
+</body>
+</html>

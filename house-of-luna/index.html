@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>House of Luna</title>
+
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+/* menu */
+	var clicks = 0;
+	var clicks2 = 0;
+	window.onload = function(){ 
+	document.getElementById("doorLeft").onclick = function() {
+		console.log(clicks);
+		left();
+		};
+		function left() {
+			if(clicks) {
+				clicks--;
+				$('#doorLeft').animate({'marginLeft' : "-=230px"});
+			} else {
+				clicks++;
+				$('#doorLeft').animate({'marginLeft' : "+=230px"});
+			}
+		}
+		
+		document.getElementById("doorRight").onclick = function() {
+		console.log(clicks2);
+		right();
+		};
+		function right() {
+			if(clicks2) {
+				clicks2--;
+				$('#doorRight').animate({'marginRight' : "-=230px"});
+			} else {
+				clicks2++;
+				$('#doorRight').animate({'marginRight' : "+=230px"});
+			}
+		}
+	}
+	
+
+</script>
+</head>
+
+<body>
+	<div id="container">
+        <div id="doorLeft">
+       	    <img id="menuBtn" class="scaling" src="img/menuBtn.png" width="20">
+        	<a href="home.html" target="iframe_a"><img class="floating" id="banner" src="img/banner.png"></a>
+        	<ul>
+            <li><a href="livingroom.html" target="iframe_a"><img class="floating" id="btnL" src="img/btnL.png"></a></li>
+            <li><a href="bedroom.html" target="iframe_a"><img class="floating" id="btnB" src="img/btnB.png"></a></li>
+            <li><a href="kitchen.html" target="iframe_a"><img class="floating" id="btnK" src="img/btnK.png"></a></li>
+            </ul>
+        </div>
+        <div id="doorRight">
+        	<img id="menuBtn2" class="scaling" src="img/menuBtn2.png" width="20">
+            <p><label>House of Luna</label><br /><br />
+            Chi Chiu LAU<br />
+            Hyuck Min MOON<br />
+            Jyana CASCANTE<br />
+            Po Ka Mickey KWONG<br />
+            </p>
+        </div>
+        
+        <div id="content">
+        <iframe src="home.html" name="iframe_a" id="iframe_a" frameborder="0"></iframe>
+        </div>
+	</div>
+
+    
+
+</body>
+</html>

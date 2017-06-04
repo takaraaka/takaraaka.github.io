@@ -1,0 +1,173 @@
+	/* v1.0 | 20080212 */
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-size: 100%;
+		vertical-align: baseline;
+		background: transparent;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	
+	/* remember to define focus styles! */
+	:focus {
+		outline: 0;
+	}
+	
+	/* remember to highlight inserts somehow! */
+	ins {
+		text-decoration: none;
+	}
+	del {
+		text-decoration: line-through;
+	}
+	
+	/* tables still need 'cellspacing="0"' in the markup */
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	
+	/*end of reset.css*/
+
+
+	body {
+		margin: 0;
+		overflow: hidden;
+		-webkit-touch-callout: none; /* iOS Safari */
+     	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* IE/Edge */
+        user-select: none; 
+		background-color: #284053;
+	}
+	#container {
+		margin-left: 0;
+		margin-right: 0;
+		border: none;
+		text-align: center;
+		/*require background image */
+		height: 628px;
+		background-image: url(../img/bedroom.jpg);
+		background-size: auto 628px;
+		background-repeat: repeat;
+		background-position: top center;
+		/* disable highlight */
+		-webkit-touch-callout: none; /* iOS Safari */
+  		-webkit-user-select: none;   /* Chrome/Safari/Opera */
+  	    -khtml-user-select: none;    /* Konqueror */
+  	    -moz-user-select: none;      /* Firefox */
+		-ms-user-select: none;       /* IE/Edge */
+		user-select: none
+	}
+	#click {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		width: 160px;
+		top: 45px;
+		left: 80px;
+		/* disable highlight */
+		-webkit-touch-callout: none; /* iOS Safari */
+  		-webkit-user-select: none;   /* Chrome/Safari/Opera */
+  	    -khtml-user-select: none;    /* Konqueror */
+  	    -moz-user-select: none;      /* Firefox */
+		-ms-user-select: none;       /* IE/Edge */
+		user-select: none
+	}
+	/*floating Obj*/
+	.floating{
+		-webkit-animation-name: Floatingx;
+		-webkit-animation-duration: 3s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: ease-in-out;
+		-moz-animation-name: Floating;
+		-moz-animation-duration: 3s;
+		-moz-animation-iteration-count: infinite;
+		-moz-animation-timing-function: ease-in-out;
+	
+	}
+
+	@-webkit-keyframes Floatingx{
+		from {-webkit-transform:translate(0, 0px);}
+		65% {-webkit-transform:translate(0, 12px);}
+		to {-webkit-transform: translate(0, -0px);}    
+	}
+    
+	@-moz-keyframes Floating{
+		from {-moz-transform:translate(0, 0px);}
+		65% {-moz-transform:translate(0, 12px);}
+		to {-moz-transform: translate(0, -0px);}    
+	}
+	#hin {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		height: 628px;
+		width: 100%;
+		min-width: 626px;
+		text-align: center;
+		/* disable highlight */
+		-webkit-touch-callout: none; /* iOS Safari */
+  		-webkit-user-select: none;   /* Chrome/Safari/Opera */
+  	    -khtml-user-select: none;    /* Konqueror */
+  	    -moz-user-select: none;      /* Firefox */
+		-ms-user-select: none;       /* IE/Edge */
+		user-select: none
+		min-width: 610px;
+	}
+		
+	#diaryBtn {
+		width: 50px;
+		position: relative;
+		top: 172px;
+		left: 20px;
+	}
+	#hins3 {
+		position:relative;
+		width: 180px;
+		top: 200px;
+		right: 245px;
+		padding-bottom: 50px;
+		padding-right: 45px;
+		opacity: 0;
+		
+	}
+	#hins3:hover {
+		opacity: 1;
+	}
+	#hins4 {
+		position:relative;
+		width: 160px;
+		top: 85px;
+		right: 330px;
+		padding: 50px 0 120px 180px;
+		opacity: 0;
+	}
+	#hins4:hover {
+		opacity: 1;
+	}

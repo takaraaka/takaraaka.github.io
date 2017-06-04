@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Diary</title>
+  <link rel="stylesheet" type="text/css" href="css/diary.css">
+  <script type="text/javascript">
+    var answer;
+
+    function getVar(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) {
+          return pair[1];
+        }
+      }
+      return null;
+    }
+
+    function houseMember() {
+      var getVarArray = [getVar("mother"),getVar("father"),getVar("fairygodparents"),getVar("brother"),getVar("sister"),getVar("manycherubsiblings")];
+      var userChecked = "";
+      for (var i = 0; i < getVarArray.length; i++) {
+        if (getVarArray[i] != null) userChecked += " " + getVarArray[i].split("+").join(" ") + ",";
+      }
+      return userChecked;
+  }
+
+    function dailyAct() {
+      var getVarArray = [getVar("braid"),getVar("pluck"),getVar("go"),getVar("dip"),getVar("climb"),getVar("use")];
+      var userChecked = "";
+      for (var i = 0; i < getVarArray.length; i++) {
+        if (getVarArray[i] != null) userChecked += " " + getVarArray[i].split("+").join(" ") + ",";
+      }
+      return userChecked;
+  }
+
+    function fillval() {
+      phtml = document.querySelector('#leftpage');
+      if (window.location.search.substring(1)) {
+        //DISPLAY
+        phtml.innerHTML = "<p><br/><br/><br/><br/><br/>" + "My name is " + getVar('urName') + "." + "<br/>"
+        + " But my friends call me " + getVar('nickName') + "." + "<br/>"
+        + " I am " + getVar('age') + " year(s) old." + "<br/>"
+        + " I love " + getVar('lovely').split("+").join(" ") + "." + "<br/>" + "<br/>"
+        + "<b>A Day at the House of Luna </b>"  + "<br/>"
+        + " I live in a beautiful house by " + getVar('live').split("+").join(" ") + "."
+        + " I live with my" + houseMember() + " the moon goddess" + ", and our " + getVar('own').split("+").join(" ") + "."
+        + "<br/>"+ "<br/>"
+        + " Everyday we would " + dailyAct()
+        + " and as for every night, we would all gather together, and fall entranced to the moon, basking in its silvery glow, always, and always, at the house of Luna." + "<br/>"
+        + "</p>"
+        document.querySelector('#urName').value = getVar('urName');
+        document.querySelector('#nickName').value = getVar('nickName');
+        document.querySelector('#age').value = getVar('age');
+        document.querySelector('#lovely').value = getVar('lovely').split("+").join(" ");
+        document.querySelector('#live').value = getVar('live').split("+").join(" ") ;
+        optionsChecked = document.querySelectorAll("input[type='checkbox']");
+        if (getVar("mother") != null) optionsChecked[0].checked = true;
+        if (getVar("father") != null) optionsChecked[1].checked = true;
+        if (getVar("fairygodparents") != null) optionsChecked[2].checked = true;
+        if (getVar("brother") != null) optionsChecked[3].checked = true;
+        if (getVar("sister") != null) optionsChecked[4].checked = true;
+        if (getVar("manycherubsiblings") != null) optionsChecked[5].checked = true;
+        document.querySelector('#own').value = getVar('own').split("+").join(" ") ;
+        if (getVar("braid") != null) optionsChecked[6].checked = true;
+        if (getVar("pluck") != null) optionsChecked[7].checked = true;
+        if (getVar("go") != null) optionsChecked[8].checked = true;
+        if (getVar("dip") != null) optionsChecked[9].checked = true;
+        if (getVar("climb") != null) optionsChecked[10].checked = true;
+        if (getVar("use") != null) optionsChecked[11].checked = true;
+      } else {
+        phtml.innerHTML = "<p id='labelCreate'>Create your story!</p>";
+      }
+    }
+  </script>
+
+</head>
+
+<body onload="fillval();">
+  <a href="bedroom.html" target="_self"><img src="img/backbtn.png" id="backbtn" class="floating"></a>
+  <div id="book">
+    <div id="leftpage">
+
+    </div>
+    <form id="rightpage" action="diary.html" method="get">
+      <p>
+        <legend>About Me
+        </legend><br>
+        <label>My name is
+        </label>
+        <input type="text" id="urName" name="urName" value="" /> .
+        
+        <br />
+        <label> But my friends call me
+        </label>
+        <input type="text" id="nickName" name="nickName" value="" /> .
+       
+        <br />
+        <label> I am
+        </label>
+        <select id="age" name="age">
+          <script type="text/javascript">
+            for (var i = 1; i <= 18; i++) {
+              var select = document.getElementById("age");
+              var option = document.createElement("option");
+              select.options.add(option);
+              option.text = i;
+              option.value = i;
+            }
+          </script>
+        </select> year(s) old.
+        <br/>
+       
+
+        <label>I love</label>
+        <select id="lovely" name="lovely">
+          <option id="drawing" value="drawing pixie sightings">drawing pixie sightings</option>
+          <option id="playing" value="playing in the forest">playing in the forest</option>
+          <option id="listening" value="listening to the birds sing">listening to the birds sing</option>
+          <option id="reading" value="reading fairytales">reading fairytales</option>
+          <option id="mastering" value="mastering my magical craft">mastering my magical craft</option>
+        </select>.
+      <br /><br /><br /></p>
+      <p>
+        <legend>A Day at the House of Luna</legend><br />
+        <label>I live in a beautiful house by</label>
+        <select id="live" name="live">
+          <option value="a beach with the bluest sea" selected="selected">a beach with the bluest sea</option>
+          <option value="a silent desert with the starriest nights">a silent desert with the starriest nights</option>
+          <option value="a forest of magical fauna">a forest of magical fauna</option>
+          <option value="a jungle of exotic flora">a jungle of exotic flora</option>
+        </select>.
+        <br/>
+        <br/>
+        <label>I live with my </label>
+        <input type="checkbox" id="mother" name="mother" value="Mother"/>
+        <label for="mother">Mother, </label>
+        <input type="checkbox" id="father" name="father" value="Father"/>
+        <label for="father">Father, </label>
+        <input type="checkbox" id="fairygodparents" name="fairygodparents" value="fairy godparents"/>
+        <label for="fairygodparents">fairy godparents, </label>
+        <input type="checkbox" id="brother" name="brother" value="brother"/>
+        <label for="brother">brother, </label>
+        <input type="checkbox" id="sister" name="sister" value="sister"/>
+        <label for="sister">sister,</label>
+        <input type="checkbox" id="manycherubsiblings" name="manycherubsiblings" value="manycherubsiblings" />
+        <label for="manycherubsiblings">many cherub siblings, </label>
+        <label for="own">the moon goddess and our </label>
+        <select id="own" name="own">
+          <option value="unicorn" selected="selected">unicorn</option>
+          <option value="stable of pegasi">stable of pegasi</option>
+          <option value="field of baby dragons">field of baby dragons</option>
+          <option value="sky of doves">sky of doves</option>
+          <option value="garden of butterflies">garden of butterflies</option>
+          <option value="pond of mermaids">pond of mermaids</option>
+        </select>.
+        <br/>
+        <br/>
+
+        <label>Everyday we would</label>
+
+        <input type="checkbox" id="braid" name="braid" value="braid flowers into our hair" />
+        <label for="braid">braid flowers into our hair</label>
+        <input type="checkbox" id="pluck" name="pluck" value="pluck and collect berries for a special feast" />
+        <label for="pluck">pluck and collect berries for a special feast</label>
+        <input type="checkbox" id="go" name="go" value="go pixie watching" />
+        <label for="go">go pixie watching</label>
+        <input type="checkbox" id="dip" name="dip" value="dip into the nearby lakes of twinkling glitter" />
+        <label for="dip">dip into the nearby lakes of twinkling glitter</label>
+        <input type="checkbox" id="climb" name="climb" value="climb giant beanstalks" />
+        <label for="climb">climb giant beanstalks</label>
+        <input type="checkbox" id="use" name="use" value="use magic to make the waterlilies wither and bloom" />
+        <label for="use">use magic to make the waterlilies wither and bloom</label>, and as for every night, we would all gather together, and fall entranced to the moon, basking in its silvery glow, always, and always, at the house of Luna.
+
+      </p>
+      <p>
+        <br/>
+        <input type="submit" value="Done!" />
+        <span> - </span>
+        <input type="reset" value="Start over" />
+      </p>
+      <br><br>
+    </form>
+  </div>
+
+</body>
+
+</html>

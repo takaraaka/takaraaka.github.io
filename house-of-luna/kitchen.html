@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- using javascript example taken from jQuery library to modify -->
+<!--Copyright 2016 The jQuery Foundation. jQuery License -->
+<html>
+<head>
+<title>Kitchen</title>
+<link rel="stylesheet" type="text/css" href="css/kitchen.css">
+<!-- script from jQuery library -->
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+<script>
+window.onload = function() {
+    var myCanvas = document.getElementById("Drawing");
+    var curColor = $('#selectColor option:selected').val();
+    if(myCanvas){
+        var isDown = false;
+        var ctx = myCanvas.getContext("2d");
+        var canvasX, canvasY;
+        ctx.lineWidth = 5;
+                                 
+	$(myCanvas)
+    .mousedown(function(e){
+        isDown = true;
+        ctx.beginPath();
+        canvasX = e.pageX - myCanvas.offsetLeft;
+		canvasY = e.pageY - myCanvas.offsetTop;
+        ctx.moveTo(canvasX, canvasY);
+        })
+    .mousemove(function(e){
+        if(isDown != false) {
+            canvasX = e.pageX - myCanvas.offsetLeft;
+            canvasY = e.pageY - myCanvas.offsetTop;
+            ctx.lineTo(canvasX, canvasY);
+            ctx.strokeStyle = curColor;
+            ctx.stroke();
+        }
+        })
+    .mouseup(function(e){
+        isDown = false;
+        ctx.closePath();
+        });
+}
+                 
+    $('#selectColor').change(function () {
+        curColor = $('#selectColor option:selected').val();
+        });
+                 
+};
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+<div id="intro">
+<p id="abt">Kitchen</p><br /><br />
+This is where you can draw anything you like, as if drawing something to stick up on your fridge. Just select a colour from the drop down menu, and click and drag inside the white canvas to make a mark. You can also erase by selecting the white colour option!
+</div>
+<div id="board">
+<canvas id="Drawing" width="500px" height="500px">
+</canvas>
+<p><br />Color : 
+<select id="selectColor">
+    <option id="colRed" value="red" selected="selected">Red</option>
+	<option id="colOrange" value="orange">Orange</option>
+    <option id="colYellow" value="yellow">Yellow</option>
+	<option id="colGreen" value="green">Green</option>
+	<option id="colBlue" value="blue">Blue</option>
+    <option id="colCyan" value="cyan">Cyan</option>              
+    <option id="colPurple" value="purple">Purple</option>
+    <option id="colBlack" value="black">Black</option>
+    <option id="colWhite" value="white">Eraser</option>
+</select>
+<p id="warning">The drawing board does not work for IE browser.</p>
+</p>
+</div>
+</div>
+</body>
+</html>

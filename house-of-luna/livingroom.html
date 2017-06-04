@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Living Room</title>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- script refer jQuery library -->
+	<script src="js/jquery.zoomooz.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/livingroom.css">
+
+    <script type="text/javascript">
+	var v;
+	function init() {
+	  v=document.getElementById("v");
+	}
+	function initButton() {
+	  document.getElementById("b").style.visibility="visible";
+	}
+	function switchVideo(n) {
+	  v.pause();
+	  switch(n) {
+	  case 1 :
+	   document.getElementById('vdiv').innerHTML=
+	    '<video id="v" oncanplay="initButton();" autoplay>'+
+		 /*require video 2 */
+	    '<source src="video/test-doll.mp4" type="video/mp4">'+
+	    '</video>';
+	    v.load();
+	    break;
+	  case 2 :
+	    document.getElementById('vdiv').innerHTML=
+	    '<video id="v" oncanplay="initButton();" autoplay>'+
+		 /*require video 2 */
+	    '<source src="video/2015 Oscar Nominated 3D Animated Shorts Sweet Cocoon - by ESMA.mp4" type="video/mp4">'+
+	    '</video>';
+	    v.load();
+	    break;
+	  case 3 :
+	    case 1 :
+	   document.getElementById('vdiv').innerHTML=
+	    '<video id="v" oncanplay="initButton();" autoplay>'+
+		 /*require video 2 */
+	    '<source src="video/Funny Animal animation.mp4" type="video/mp4">'+
+	    '</video>';
+	    v.load();
+	    break;
+	}
+	}
+	/*end of video*/
+	var r;
+	function init2() {
+	  r=document.getElementById("r");
+	}
+	function initButton2() {
+	  document.getElementById("b2").style.visibility="visible";
+	}
+	function switchAudio(n) {
+	  r.pause();
+	  switch(n) {
+	    case 1 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/a.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+	    case 2 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/b.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+	    case 3 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/c.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+	    case 4 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/d.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+		case 5 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/e.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+		case 6 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/f.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+		case 7 :
+	   document.getElementById('rdiv').innerHTML=
+	    '<audio id="r" oncanplay="initButton2();" autoplay>'+
+	    '<source src="audio/g.mp3" type="audio/mp3">'+
+	    '</audio>';
+	    v.load();
+	    break;
+	}
+	}
+	function Close() {
+		var stopV = document.getElementById("v"); 
+		var stopR = document.getElementById("r"); 
+    	stopV.pause();
+		stopR.pause();
+	}
+	</script>
+</head>
+
+<body onload="init(); init2();" >
+<img class="floating" id="click" src="img/a_click.png">
+<div id="hin">
+<img class="floating hins" id="hins1" src="img/hins1.png">
+<img class="floating hins" id="hins2" src="img/hins2.png">
+</div>
+<div id="container">
+	
+	<div id="vdiv">
+		<video id="v" oncanplay="initButton();" >
+		<source src="video/test-doll.mp4" type="video/mp4">
+	    </video>
+   	    </div>  
+        <div id="b">
+	    <button class="button1" class="zoomButton" data-type="prev" onclick="switchVideo(1);">1</button>
+	    <button class="button1"onclick="switchVideo(2);">2</button>
+	    <button class="button1"onclick="switchVideo(3);">3</button>
+        <button class="button1 stopVideo" onclick="Close()">x</button>
+	    <!--require channel name -->
+		</div>
+        <div id="rdiv">
+          <audio id="r" oncanplay="initButton2();" >
+          <source src="audio/a.mp3" type="audio/mp3">
+          </audio>
+          </div>  
+          <div id="b2">
+              <button class="button2 buttonA" onclick="switchAudio(1);"></button>
+              <button class="button2 buttonB" onclick="switchAudio(2);"></button>
+              <button class="button2 buttonC" onclick="switchAudio(3);"></button>
+              <button class="button2 buttonD" onclick="switchAudio(4);"></button><br>
+              <button class="button2 buttonE" onclick="switchAudio(5);"></button>
+              <button class="button2 buttonF" onclick="switchAudio(6);"></button>
+              <button class="button2 buttonG" onclick="switchAudio(7);"></button>
+              <button class="button2 buttonS" onclick="Close()"></button>
+          </div>
+          <div id="zoomR" class="zoomTarget" data-targetsize="0.5" data-closeclick="true" data-nativeanimation="true"></div>
+          <div id="zoomV" class="zoomTarget" data-scalemode="both" data-nativeanimation="true"></div>
+		</div>
+</body>
+</html>
